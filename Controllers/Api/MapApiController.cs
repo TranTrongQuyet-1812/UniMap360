@@ -112,16 +112,10 @@ public class MapApiController : ControllerBase
                 price = displayPrice,
                 lat = item.Latitude,
                 lng = item.Longitude,
-                latitude = item.Latitude,
-                longitude = item.Longitude,
                 address = item.AddressText,
                 category = item.CategoryName,
                 thumbnail = resolvedImage,
-                thumbnaiUrl = resolvedImage,
                 priceStr = item.ItemType == "Room" ? item.Value : null,
-                jobTitle = normalizedType == "job" ? title : null,
-                companyName = normalizedType == "job" ? item.AddressText : null,
-                salary = normalizedType == "job" ? displayPrice : null,
                 isExternal = item.IsExternal ?? false,
                 sourceUrl = item.SourceUrl
             };
