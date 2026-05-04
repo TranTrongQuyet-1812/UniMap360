@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
             listContainer.insertAdjacentHTML('beforeend', cardHTML);
 
             // --- TẠO MARKER TRÊN BẢN ĐỒ ---
-            if (item.latitude && item.longitude) {
+            if (item.lat && item.lng) {
                 // Khôi phục lại Label đầy đủ thông tin nằm cạnh Marker!
                 var customIcon = L.divIcon({
                     html: `
