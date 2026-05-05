@@ -366,18 +366,6 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-3" id="sidebarTags">
-                    <h6 class="mb-3 fw-bold" style="color: var(--color-text-muted); font-size: 0.9rem; text-transform: uppercase;">
-                        Thói quen nổi bật
-                    </h6>
-                    <div class="d-flex flex-wrap gap-2">
-                        <span class="post-tag js-filter-tag" style="cursor:pointer;">#KhongHutThuoc</span>
-                        <span class="post-tag js-filter-tag" style="cursor:pointer;">#SachSe</span>
-                        <span class="post-tag js-filter-tag" style="cursor:pointer;">#ItTuTap</span>
-                        <span class="post-tag js-filter-tag" style="cursor:pointer;">#NuoiMeo</span>
-                        <span class="post-tag js-filter-tag" style="cursor:pointer;">#GiuImLangDem</span>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -956,25 +944,7 @@
                 });
             });
 
-            const tagItems = document.querySelectorAll('#sidebarTags .js-filter-tag');
-            tagItems.forEach(tag => {
-                tag.addEventListener('click', function() {
-                    const tagText = this.innerText.replace('#', '').trim();
-                    if (this.classList.contains('active-tag')) {
-                        this.classList.remove('active-tag');
-                        window.currentTagFilter = null;
-                        this.style.background = '';
-                        this.style.color = '';
-                    } else {
-                        tagItems.forEach(t => { t.classList.remove('active-tag'); t.style.background = ''; t.style.color = ''; });
-                        this.classList.add('active-tag');
-                        this.style.background = 'var(--color-primary)';
-                        this.style.color = 'white';
-                        window.currentTagFilter = tagText;
-                    }
-                    applyFilters();
-                });
-            });
+
         }
 
         function applyFilters() {
@@ -989,15 +959,7 @@
                 filtered = filtered.filter(p => p.targetGender && p.targetGender !== 'Any');
             }
 
-            // 2. Tags filter
-            if (window.currentTagFilter) {
-                const tagLower = window.currentTagFilter.toLowerCase();
-                filtered = filtered.filter(p => {
-                    if (!p.habits) return false;
-                    const habits = p.habits.split(',').map(h => h.trim().toLowerCase());
-                    return habits.includes(tagLower);
-                });
-            }
+
 
             renderFeed(filtered);
         }
