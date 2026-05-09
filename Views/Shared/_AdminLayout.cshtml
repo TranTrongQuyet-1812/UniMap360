@@ -1,3 +1,4 @@
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment Env
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -243,6 +244,14 @@
             <a href="/Admin/AuditLogs" class="sidebar-item @(ViewData["ActiveAdminPage"]?.ToString() == "audit-logs" ? "active" : "")">
                 <i class="fas fa-history"></i> Nhật ký kiểm toán
             </a>
+            
+            @if (Env.EnvironmentName == "Development")
+            {
+                <a href="/Admin/ApiDocs" class="sidebar-item @(ViewData["ActiveAdminPage"]?.ToString() == "api-docs" ? "active" : "")">
+                    <i class="fas fa-file-code"></i> Tài liệu API
+                </a>
+            }
+
             <a href="/Admin/Cleanup" class="sidebar-item @(ViewData["ActiveAdminPage"]?.ToString() == "cleanup" ? "active" : "")">
                 <i class="fas fa-broom"></i> Dọn dữ liệu
             </a>
