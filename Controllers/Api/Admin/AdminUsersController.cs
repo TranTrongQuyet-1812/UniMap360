@@ -7,6 +7,9 @@ using UniMap360.Services.Admin;
 
 namespace UniMap360.Controllers.Api.Admin;
 
+/// <summary>
+/// API quản lý người dùng dành cho Quản trị viên (Admin)
+/// </summary>
 [ApiController]
 [Route("api/admin/users")]
 [Authorize(Roles = "Admin")]
@@ -29,6 +32,9 @@ public sealed class AdminUsersController : ControllerBase
         _cloudinaryAssetPurger = cloudinaryAssetPurger;
     }
 
+    /// <summary>
+    /// Lấy danh sách toàn bộ người dùng có phân trang và lọc theo role
+    /// </summary>
     [HttpGet]
     public async Task<IActionResult> GetUsers([FromQuery] UserListQuery query, CancellationToken cancellationToken)
     {

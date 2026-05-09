@@ -4,6 +4,7 @@ using UniMap360.Models;
 
 namespace UniMap360.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
