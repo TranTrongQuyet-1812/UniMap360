@@ -94,7 +94,7 @@
     bottom: 165px;
     z-index: 1950;
     width: min(420px, calc(100vw - 32px));
-    height: min(580px, calc(100vh - 195px));
+    height: min(580px, calc(100dvh - 195px));
     background: rgba(255, 255, 255, 0.88); /* Premium Light theme frosted glass */
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
@@ -361,7 +361,7 @@
         left: 12px !important;
         width: auto !important;
         bottom: 210px !important; /* Nổi lên phía trên bong bóng chat */
-        height: calc(100vh - 290px) !important; /* Đảm bảo đỉnh panel cách mép trên 80px, không bị header che khuất */
+        height: calc(100dvh - 290px) !important; /* Đảm bảo đỉnh panel cách mép trên 80px, không bị header che khuất */
         border-radius: 20px !important;
     }
 }
