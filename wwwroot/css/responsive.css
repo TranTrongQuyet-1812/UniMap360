@@ -55,6 +55,23 @@ body {
         margin-top: 12px;
         padding: 16px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        
+        /* Khóa chiều cao tối đa chống tràn màn hình điện thoại */
+        max-height: 75dvh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Tối ưu hóa thanh cuộn siêu mảnh cho menu mobile */
+    .navbar-collapse::-webkit-scrollbar {
+        width: 4px;
+    }
+    .navbar-collapse::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .navbar-collapse::-webkit-scrollbar-thumb {
+        background: rgba(120, 1, 21, 0.2);
+        border-radius: 10px;
     }
 
     .navbar-nav {
