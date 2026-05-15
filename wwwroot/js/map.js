@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ----------------------------------------------------
     // INVERTED GEOJSON MASKING (HIỆU ỨNG SPOTLIGHT VIỆT NAM)
     // ----------------------------------------------------
-    fetch('/data/vietnam.json')
+    fetch('/data/vietnam.json?v=2')
         .then(response => response.json())
         .then(data => {
             var worldBounds = [
