@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
             font-family: system-ui, -apple-system, sans-serif;
             pointer-events: none;
             line-height: 1.2;
-            width: 180px;
+            width: 100% !important;
+            display: block;
         }
         .island-label {
             color: #0f172a !important;
@@ -56,7 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
             text-align: center;
             font-family: system-ui, -apple-system, sans-serif;
             pointer-events: none;
-            width: 100px;
+            width: 100% !important;
+            display: block;
         }
     `;
     document.head.appendChild(styleEl);
