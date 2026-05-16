@@ -25,6 +25,65 @@ document.addEventListener('DOMContentLoaded', function () {
         maxZoom: 19
     }).addTo(map);
 
+    // ====================================================
+    // BỔ SUNG NHÃN CHỦ QUYỀN VIỆT NAM (HOÀNG SA & TRƯỜNG SA)
+    // ====================================================
+    var styleEl = document.createElement('style');
+    styleEl.innerHTML = `
+        .custom-map-label {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .national-territory-label {
+            color: #dc2626 !important;
+            font-weight: 800 !important;
+            font-size: 13px !important;
+            text-shadow: 0 0 3px #ffffff, 0 0 6px #ffffff, 0 0 10px #ffffff !important;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: system-ui, -apple-system, sans-serif;
+            pointer-events: none;
+            line-height: 1.2;
+            width: 180px;
+        }
+        .island-label {
+            color: #0f172a !important;
+            font-weight: 600 !important;
+            font-size: 10px !important;
+            text-shadow: 0 0 3px #ffffff, 0 0 5px #ffffff !important;
+            text-align: center;
+            font-family: system-ui, -apple-system, sans-serif;
+            pointer-events: none;
+            width: 100px;
+        }
+    `;
+    document.head.appendChild(styleEl);
+
+    var territoryLabels = [
+        { name: "Quần đảo Hoàng Sa<br>(Việt Nam)", pos: [16.52, 111.7], className: "national-territory-label" },
+        { name: "Quần đảo Trường Sa<br>(Việt Nam)", pos: [9.6, 113.2], className: "national-territory-label" },
+        { name: "Đảo Phú Lâm", pos: [16.8396, 112.3347], className: "island-label" },
+        { name: "Đảo Hoàng Sa", pos: [16.5338, 111.6094], className: "island-label" },
+        { name: "Đảo Trường Sa", pos: [8.6439, 111.9213], className: "island-label" },
+        { name: "Đảo Nam Yết", pos: [10.1818, 114.3644], className: "island-label" },
+        { name: "Đảo Sinh Tồn", pos: [9.8833, 114.3211], className: "island-label" },
+        { name: "Đảo Song Tử Tây", pos: [11.4382, 114.3314], className: "island-label" }
+    ];
+
+    territoryLabels.forEach(function (lbl) {
+        L.marker(lbl.pos, {
+            icon: L.divIcon({
+                html: '<div class="' + lbl.className + '">' + lbl.name + '</div>',
+                className: 'custom-map-label',
+                iconSize: [200, 40],
+                iconAnchor: [100, 20]
+            }),
+            interactive: false
+        }).addTo(map);
+    });
+
     // ----------------------------------------------------
     // INVERTED GEOJSON MASKING (HIỆU ỨNG SPOTLIGHT VIỆT NAM)
     // ----------------------------------------------------
