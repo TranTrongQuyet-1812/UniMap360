@@ -33,7 +33,7 @@
 ### Front-end
 - **Cốt lõi:** HTML5, Vanilla JavaScript, CSS3.
 - **Thư viện giao diện:** Bootstrap 5.
-- **Bản đồ:** Leaflet.js / VietMap API.
+- **Bản đồ:** Leaflet.js / OpenStreetMap.
 - **Icon & UI:** FontAwesome, Google Fonts.
 
 ### DevOps & Deployment
