@@ -10,9 +10,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==========================================
     // 1. KHỞI TẠO BẢN ĐỒ VÀ MÀNG CHE PHỦ (MASK)
     // ==========================================
+    var southwest = L.latLng(4.0, 99.0);
+    var northeast = L.latLng(24.5, 120.0);
+    var vietnamBounds = L.latLngBounds(southwest, northeast);
+
     var map = L.map('map', {
         center: [16.047079, 108.206230], // Miền Trung VN
         zoom: 6,
+        minZoom: 6,
+        maxBounds: vietnamBounds,
+        maxBoundsViscosity: 0.8,
         zoomControl: false // Sẽ add lại ở vị trí khác
     });
 
