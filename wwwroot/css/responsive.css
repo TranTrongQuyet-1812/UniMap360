@@ -142,6 +142,84 @@ body {
     }
 }
 
+/* =========================================================================
+   Collapsible Sidebar (Desktop & Tablet)
+   ========================================================================= */
+@media (min-width: 768px) {
+    #floating-panel {
+        overflow: visible !important;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    #floating-panel.collapsed {
+        transform: translateX(calc(-100% - 24px));
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 768px) {
+    #floating-panel.collapsed {
+        transform: translateX(calc(-100% - 16px));
+    }
+}
+
+@media (max-width: 991.98px) and (min-width: 768px) {
+    #floating-panel.collapsed {
+        transform: translateX(calc(-100% - 10px));
+    }
+}
+
+/* Toggle Button Styling */
+.sidebar-toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: -28px; /* Stick out from the right edge */
+    transform: translateY(-50%);
+    width: 28px;
+    height: 56px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 6px 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1005;
+    color: var(--color-text-secondary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    padding: 0;
+}
+
+.sidebar-toggle-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
+    width: 32px; /* Slightly wider on hover for micro-interaction */
+    right: -32px;
+}
+
+.sidebar-toggle-btn i {
+    font-size: 13px;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#floating-panel.collapsed .sidebar-toggle-btn i {
+    transform: rotate(180deg);
+}
+
+/* Glassmorphic touch on toggle button */
+@supports (backdrop-filter: blur(10px)) {
+    .sidebar-toggle-btn {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toggle-btn:hover {
+        background: rgba(120, 1, 21, 0.95);
+    }
+}
+
 @media (max-width: 767.98px) {
     #floating-panel {
         left: 0 !important;
@@ -155,6 +233,10 @@ body {
         box-shadow: 0 -10px 40px rgba(0,0,0,0.15) !important;
         padding-bottom: env(safe-area-inset-bottom, 8px);
         transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #floating-panel.collapsed {
+        transform: none !important;
     }
 
     /* Ẩn toàn bộ Search Box và Filter Chips khi thu gọn để đạt độ tinh gọn tuyệt đối */
